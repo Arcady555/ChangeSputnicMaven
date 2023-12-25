@@ -10,22 +10,45 @@
         <table class="table">
             <thead>
             <tr>
+                <th scope="col"></th>
                 <th scope="col">Валюта на обмен</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
                 <th scope="col">Валюта целевая</th>
                 <th scope="col">Курс</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td th:text="${pairExchange.base_code}"  />
-                <td th:text="${pairExchange.target_code}" />
-                <td th:text="${pairExchange.conversion_rate}"/>
+                <form>
+                    <td>
+                        <input id="a" type="number" size="32" placeholder="0">
+                    </td>
+                    <td th:text="${pairExchange.base_code}"  />
+                    <td> = </td>
+                    <td>
+                        <output name="out" for="a b">0</output>
+                    </td>
+                    <td th:text="${pairExchange.target_code}" />
+                    <td th:text ="${pairExchange.conversion_rate}"/>
+                    <td>
+                        <input id="b" type="hidden" th:attr="value=${pairExchange.conversion_rate}"/>
+                    </td>
+                    <input type="button" onclick="out.value=parseFloat(a.value) * parseFloat(b.value)" value="Вычислить сумму обмена">
+                </form>
             </tr>
             </tbody>
         </table>
     </div>
   </div>
 <div>
+    <p>
+
+    </p>
+    <p>
+
+    </p>
     <form th:action="@{/allCurrencies/RUB}">
         <button type="submit" class="btn btn-primary mt-3">Вернуться на главную страницу </button>
     </form>
