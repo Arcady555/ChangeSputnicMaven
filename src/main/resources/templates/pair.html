@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Обмен двух валют</title>
+</head>
+<body>
+<div class="alert alert-warning">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Валюта на обмен</th>
+                <th scope="col">Валюта целевая</th>
+                <th scope="col">Курс</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${pairExchange.base_code}"  />
+                <td th:text="${pairExchange.target_code}" />
+                <td th:text="${pairExchange.conversion_rate}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+<div>
+    <form th:action="@{/allCurrencies/RUB}">
+        <button type="submit" class="btn btn-primary mt-3">Вернуться на главную страницу </button>
+    </form>
+</div>
+</body>
+</html>
